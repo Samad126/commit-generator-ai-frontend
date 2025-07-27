@@ -3,7 +3,7 @@ import WhyChoose from "@/components/Home/WhyChoose";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="">
       {/* Hero */}
       <Hero />
 
