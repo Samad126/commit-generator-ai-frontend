@@ -5,7 +5,7 @@ import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 function RegisterPage() {
-  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -49,17 +49,17 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Full Name Field */}
+          {/* Username Field */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-300 mb-2">
-              Full Name
+              Username
             </label>
             <input
               type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-              placeholder="John Doe"
+              placeholder="John123"
             />
           </div>
 
