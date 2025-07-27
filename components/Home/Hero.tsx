@@ -1,9 +1,10 @@
 import Image from "next/image";
 import heroImage from "@/assets/hero-image.jpg";
+import Link from "next/link";
 
 function Hero() {
   return (
-    <section className="px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-20">
+    <section className="px-4 sm:px-6 lg:px-20 py-24 pb-12 sm:pb-16 sm:pt-28 lg:pb-20 lg:pt-32">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
         <div className="flex-1 text-center lg:text-left">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
@@ -19,12 +20,11 @@ function Hero() {
             hours of time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="bg-gradient-to-r from-green-500 to-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-black hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg">
+            <Link
+              href="/generator"
+              className="bg-gradient-to-r from-green-500 to-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-black hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg">
               Start Generating →
-            </button>
-            <button className="border border-gray-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-white hover:bg-gray-800 hover:border-gray-500 transition-all duration-200 transform hover:scale-105">
-              See Examples
-            </button>
+            </Link>
           </div>
         </div>
 

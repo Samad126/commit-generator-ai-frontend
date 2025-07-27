@@ -7,34 +7,24 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="px-4 sm:px-6 lg:px-8 py-4 border-b border-gray-800 relative">
+    <header className="px-4 sm:px-6 lg:px-8 py-4 border-b border-gray-800 fixed top-0 w-full z-50 bg-gray-900">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="text-green-400 font-bold text-xl sm:text-2xl">
           CommitGen AI
         </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-gray-300">
-          <a
-            href="#"
-            className="hover:text-white transition-colors duration-200"
-          >
-            Features
-          </a>
-          <a
-            href="#"
-            className="hover:text-white transition-colors duration-200"
-          >
-            About
-          </a>
-          <a
-            href="#"
+          <Link
+            href="/login"
             className="hover:text-white transition-colors duration-200"
           >
             Login
-          </a>
-          <button className="bg-green-500 px-4 py-2 rounded-lg text-black font-semibold hover:bg-green-600 transition-colors duration-200">
+          </Link>
+          <Link
+            href="/generator"
+            className="bg-green-500 px-4 py-2 rounded-lg text-black font-semibold hover:bg-green-600 transition-colors duration-200">
             Try Now
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
