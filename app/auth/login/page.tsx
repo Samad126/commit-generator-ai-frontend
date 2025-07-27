@@ -108,7 +108,7 @@ function LoginPage() {
           <p className="text-center text-gray-400">
             Don&apos;t have an account?{" "}
             <Link
-              href="/register"
+              href="/auth/register"
               className="text-green-400 hover:text-green-300 transition-colors duration-200"
             >
               Sign up
