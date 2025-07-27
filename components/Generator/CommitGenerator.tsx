@@ -1,13 +1,6 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
-import {
-  FaArrowLeft,
-  FaPlus,
-  FaPaperPlane,
-  FaCopy,
-  FaTrash,
-} from "react-icons/fa";
+import { FaPlus, FaPaperPlane, FaCopy, FaTrash } from "react-icons/fa";
 
 function CommitGenerator() {
   const [oldContent, setOldContent] = useState("");
