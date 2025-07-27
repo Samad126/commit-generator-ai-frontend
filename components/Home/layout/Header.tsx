@@ -15,7 +15,7 @@ function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-gray-300">
           <Link
-            href="/login"
+            href="/auth/login"
             className="hover:text-white transition-colors duration-200"
           >
             Login
