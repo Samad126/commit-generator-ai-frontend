@@ -10,7 +10,7 @@ function FileChanges() {
   });
 
   return (
-    <div className="p-6 sm:p-8">
+    <div>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
         <h2 className="text-xl sm:text-2xl font-semibold text-white flex items-center gap-3">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">

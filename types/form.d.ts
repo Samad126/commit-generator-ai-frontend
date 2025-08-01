@@ -1,12 +1,26 @@
-type GenerateCommitForm = {
-  plainText: string;
-  "": string;
-  pairs: FilePair[];
-};
-
-type FilePair = {
+export type FilePair = {
   old: string;
   new: string;
 };
 
-export type { GenerateCommitForm };
+export type PlainTextPayload = {
+  plainText: string;
+  isPair: boolean;
+};
+
+export type FileChangePayload = {
+  pairs: FilePair[];
+  isPair: boolean;
+};
+
+export type GenerateCommitForm = {
+  plainText: string;
+  ""?: string;
+  pairs: FilePair[];
+};
+
+export type GenerateCommitRaw = Partial<GenerateCommitForm>;
+
+export type GenerateCommitPayload = (PlainTextPayload | FileChangePayload) & {
+  isPair: boolean;
+};

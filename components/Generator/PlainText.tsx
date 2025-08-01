@@ -8,8 +8,7 @@ function PlainText() {
   } = useFormContext<GenerateCommitForm>();
 
   return (
-    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-2xl">
-      <div className="p-6 sm:p-8">
+    <div >
         <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 flex items-center gap-3">
           <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
             <span className="text-white text-sm font-bold">2</span>
@@ -26,7 +25,6 @@ function PlainText() {
           <p className="text-red-500 text-sm mt-2">{errors.plainText.message}</p>
         )}
       </div>
-    </div>
   );
 }
 
