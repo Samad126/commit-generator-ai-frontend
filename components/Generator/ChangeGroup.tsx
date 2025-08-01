@@ -1,3 +1,4 @@
+import { GenerateCommitForm } from "@/types/form";
 import { UseFieldArrayRemove, useFormContext } from "react-hook-form";
 import { FaTrash } from "react-icons/fa";
 
@@ -10,14 +11,17 @@ function ChangeGroup({
   latestIndex: number;
   remove: UseFieldArrayRemove;
 }) {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<GenerateCommitForm>();
 
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
-        {latestIndex !== 0  && (
+        {latestIndex !== 0 && (
           <button
-            className="absolute top-0 right-4 text-gray-300  transition-all duration-200"
+            className="absolute top-0 right-4 text-gray-300 transition-all duration-200"
             type="button"
             onClick={() => remove(groupIndex)}
           >
@@ -25,7 +29,7 @@ function ChangeGroup({
           </button>
         )}
 
-        <div className="space-y-3">
+        <div className="space-y-1">
           <label className="block text-sm font-medium text-gray-300">
             Old File Content
           </label>
@@ -35,9 +39,14 @@ function ChangeGroup({
             spellCheck="false"
             {...register(`pairs.${groupIndex}.old`)}
           />
+          {errors?.pairs?.[groupIndex]?.old && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.pairs[groupIndex].old.message}
+            </p>
+          )}
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-1">
           <label className="block text-sm font-medium text-gray-300">
             New File Content
           </label>
@@ -47,6 +56,11 @@ function ChangeGroup({
             spellCheck="false"
             {...register(`pairs.${groupIndex}.new`)}
           />
+          {errors?.pairs?.[groupIndex]?.new && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.pairs[groupIndex].new.message}
+            </p>
+          )}
         </div>
       </div>
 

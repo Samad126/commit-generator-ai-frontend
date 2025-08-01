@@ -1,7 +1,12 @@
-import { useFormContext } from "react-hook-form";
+import { GenerateCommitForm } from "@/types/form";
+import { Controller, useFormContext } from "react-hook-form";
 
 function PlainText() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+    clearErrors,
+  } = useFormContext<GenerateCommitForm>();
 
   return (
     <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-2xl">
