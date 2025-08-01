@@ -13,22 +13,21 @@ function CommitGenerator() {
   const [inputType, setInputType] = useState<"plaintext" | "filechange">(
     "filechange"
   );
-  
+
   const methods = useForm({
     defaultValues: {
-      inputType: "filechange",
       plainText: "",
       pairs: [{ old: "", new: "" }],
     },
     resolver: yupResolver(schema),
+    context: { inputType },
     shouldUnregister: true,
   });
 
-  const { handleSubmit, setValue } = methods;
+  const { handleSubmit } = methods;
 
   const handleInputTypeChange = (type: "plaintext" | "filechange") => {
     setInputType(type);
-    setValue("inputType", type);
   };
 
   const onSubmit = (data: unknown) => {
