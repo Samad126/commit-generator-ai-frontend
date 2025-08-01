@@ -3,43 +3,26 @@ import * as yup from "yup";
 export const schema = yup
   .object()
   .shape({
-    plainText: yup.string().optional(),
-
-    pairs: yup
-      .array()
-      .of(
-        yup.object().shape({
-          old: yup.string().optional(),
-          new: yup
-            .string()
-            .optional()
-            .test(
-              "required-if-present",
-              "New file content cannot be empty",
-              function (value) {
-                if (value !== undefined && value !== null) {
-                  return value.trim().length > 0;
-                }
-                return true;
-              }
-            ),
-        })
-      )
-      .min(1),
-  })
-  .test(
-    "plainText-or-one-new",
-    "You must provide either plain text or at least one pair of file changes",
-    function (value) {
-      const { plainText, pairs } = value || {};
-
-      const hasPlainText =
-        typeof plainText === "string" && plainText.trim().length > 0;
-
-      const hasNewText = Array.isArray(pairs)
-        ? pairs.some((p) => p.new && p.new.trim() !== "")
-        : false;
-
-      return hasPlainText || hasNewText;
-    }
-  );
+    inputType: yup.string().oneOf(["plaintext", "filechange"]).required(),
+    plainText: yup.string().when("inputType", {
+        is: "plaintext",
+        then: (schema) => schema.trim().required("Plain text description is required."),
+        otherwise: (schema) => schema.optional(),
+    }),
+    pairs: yup.array().when("inputType", {
+      is: "filechange",
+      then: (schema) =>
+        schema
+          .of(
+            yup.object().shape({
+              old: yup.string().optional(),
+              new: yup
+                .string()
+                .trim()
+                .required("New file content cannot be empty."),
+            })
+          )
+          .min(1, "You must provide at least one file change."),
+      otherwise: (schema) => schema.optional(),
+    }),
+  });

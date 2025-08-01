@@ -39,9 +39,9 @@ function ChangeGroup({
             spellCheck="false"
             {...register(`pairs.${groupIndex}.old`)}
           />
-          {errors?.pairs?.[groupIndex]?.old && (
+          {errors.pairs && Array.isArray(errors.pairs) && errors.pairs[groupIndex]?.old?.message && (
             <p className="text-sm text-red-500 mt-1">
-              {errors.pairs[groupIndex].old.message}
+              {errors.pairs[groupIndex]?.old?.message}
             </p>
           )}
         </div>
@@ -56,9 +56,9 @@ function ChangeGroup({
             spellCheck="false"
             {...register(`pairs.${groupIndex}.new`)}
           />
-          {errors?.pairs?.[groupIndex]?.new && (
+          {errors.pairs && Array.isArray(errors.pairs) && errors.pairs[groupIndex]?.new?.message && (
             <p className="text-sm text-red-500 mt-1">
-              {errors.pairs[groupIndex].new.message}
+              {errors.pairs[groupIndex]?.new?.message}
             </p>
           )}
         </div>

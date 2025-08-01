@@ -1,11 +1,10 @@
 import { GenerateCommitForm } from "@/types/form";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 function PlainText() {
   const {
     register,
     formState: { errors },
-    clearErrors,
   } = useFormContext<GenerateCommitForm>();
 
   return (
@@ -23,6 +22,9 @@ function PlainText() {
           spellCheck="false"
           {...register("plainText")}
         />
+        {errors.plainText && (
+          <p className="text-red-500 text-sm mt-2">{errors.plainText.message}</p>
+        )}
       </div>
     </div>
   );

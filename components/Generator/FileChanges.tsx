@@ -3,7 +3,7 @@ import { FaPlus } from 'react-icons/fa';
 import ChangeGroup from './ChangeGroup';
 
 function FileChanges() {
-  const { control } = useFormContext();
+  const { control, formState: { errors } } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'pairs',
@@ -27,7 +27,12 @@ function FileChanges() {
           Add Files
         </button>
       </div>
-
+      {errors.pairs &&
+        typeof errors.pairs.message === "string" && (
+          <p className="text-red-500 text-sm mt-2 mb-4">
+            {errors.pairs.message}
+          </p>
+        )}
       <div className="grid grid-cols-1 gap-8">
         {fields.map((field, index) => (
           <ChangeGroup
