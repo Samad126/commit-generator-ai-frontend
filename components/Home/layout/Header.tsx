@@ -31,6 +31,7 @@ function Header() {
         <button
           className="md:hidden text-white text-xl"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Menu"
         >
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
