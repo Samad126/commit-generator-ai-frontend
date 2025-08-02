@@ -30,14 +30,15 @@ function Hero() {
         </div>
 
         <div className="w-full flex-1 flex justify-center lg:justify-end">
-          <div className="relative h-full aspect-[16/9] w-sm md:w-[400px] xl:w-xl">
+          <div className="relative aspect-[16/9] w-full max-w-sm md:max-w-md xl:max-w-xl">
             <Image
               src={heroImage}
               alt="CommitGen AI Screenshot"
-              className="rounded-2xl shadow-2xl border border-gray-700 transform hover:scale-105 transition-transform duration-300"
-              priority
               fill
+              priority
               fetchPriority="high"
+              className="rounded-2xl shadow-2xl border border-gray-700 transform hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 574px"
             />
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl blur opacity-20"></div>
           </div>
