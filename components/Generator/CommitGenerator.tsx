@@ -11,6 +11,8 @@ import { GenerateCommitRaw, GenerateCommitPayload } from "@/types/form";
 import { SubmitButton } from "./SubmitButton";
 import TypeChanger from "./TypeChanger";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 function CommitGenerator() {
   const [inputType, setInputType] = useState<"plaintext" | "filechange">(
     "filechange"
@@ -55,7 +57,7 @@ function CommitGenerator() {
     setLoading(true);
     setError(null);
 
-    fetch("http://localhost:3000/generator/generate-commit-message", {
+    fetch(`${apiUrl}/generator/generate-commit-message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
