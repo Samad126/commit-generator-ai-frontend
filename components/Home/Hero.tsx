@@ -22,19 +22,21 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
               href="/generator"
-              className="bg-gradient-to-r from-green-500 to-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-black hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg">
+              className="bg-gradient-to-r from-green-500 to-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-black hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
+            >
               Start Generating →
             </Link>
           </div>
         </div>
 
-        <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative">
+        <div className="w-full flex-1 flex justify-center lg:justify-end">
+          <div className="relative w-sm md:w-md lg:w-[400px] xl:w-lg aspect-[4/3]">
             <Image
               src={heroImage}
               alt="CommitGen AI Screenshot"
-              className="rounded-2xl shadow-2xl border border-gray-700 w-full max-w-sm sm:max-w-md lg:max-w-xl transform hover:scale-105 transition-transform duration-300"
+              className="rounded-2xl shadow-2xl border border-gray-700 transform hover:scale-105 transition-transform duration-300"
               priority
+              fill
             />
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl blur opacity-20"></div>
           </div>
