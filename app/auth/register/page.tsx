@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +14,6 @@ function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8">
       <div className="w-full mt-20 max-w-md">
-
         {/* Register Form */}
         <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-2xl p-8">
           {/* Header */}
@@ -30,23 +27,6 @@ function RegisterPage() {
             <p className="text-gray-400">
               Join CommitGen AI and streamline your workflow
             </p>
-          </div>
-
-          {/* Google Sign Up */}
-          <button className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white hover:bg-gray-600/50 transition-all duration-200 mb-6">
-            <FcGoogle className="text-xl" />
-            Continue with Google
-          </button>
-
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-600"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-800 text-gray-400">
-                OR CREATE ACCOUNT WITH EMAIL
-              </span>
-            </div>
           </div>
 
           {/* Username Field */}

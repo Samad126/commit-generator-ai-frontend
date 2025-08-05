@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -22,23 +21,6 @@ function LoginPage() {
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">Welcome Back</h1>
             <p className="text-gray-400">Sign in to your account to continue</p>
-          </div>
-
-          {/* Google Sign In */}
-          <button className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white hover:bg-gray-600/50 transition-all duration-200 mb-6">
-            <FcGoogle className="text-xl" />
-            Continue with Google
-          </button>
-
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-600"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-800 text-gray-400">
-                OR CONTINUE WITH EMAIL
-              </span>
-            </div>
           </div>
 
           {/* Email Field */}
