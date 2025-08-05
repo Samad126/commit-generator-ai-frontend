@@ -69,7 +69,7 @@ function LoginPage() {
                 type="checkbox"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                className="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded"
               />
               <span className="ml-2 text-sm text-gray-300">Remember me</span>
             </label>

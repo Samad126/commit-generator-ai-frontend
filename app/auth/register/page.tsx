@@ -110,7 +110,7 @@ function RegisterPage() {
                 type="checkbox"
                 checked={agreeToTerms}
                 onChange={(e) => setAgreeToTerms(e.target.checked)}
-                className="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded focus:ring-green-500 focus:ring-2 mt-1"
+                className="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded mt-1"
               />
               <span className="ml-2 text-sm text-gray-300">
                 I agree to the{" "}
