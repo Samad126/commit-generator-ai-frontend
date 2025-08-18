@@ -22,3 +22,7 @@ export type GenerateCommitForm = {
 export type GenerateCommitRaw = Partial<GenerateCommitForm>;
 
 export type GenerateCommitPayload = PlainTextPayload | FileChangePayload;
+
+export type GenerateCommitSuccessResponse = {
+  aiResponse: string;
+};

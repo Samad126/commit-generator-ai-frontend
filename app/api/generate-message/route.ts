@@ -1,29 +1,28 @@
-// import { ErrorResponse } from "@/types/request";
-import { GenerateCommitPayload } from "@/types/form";
+import { ErrorResponse } from "@/types/error";
 import { NextResponse } from "next/server";
 
 const apiUrl = process.env.NEXT_API_URL || "http://localhost:3000";
 
-export async function POST(request: Request) {
-  const payload = await request.json();
+export async function POST(req: Request) {
+  return req
+    .json()
+    .then((payload) =>
+      fetch(`${apiUrl}/generator/generate-commit-message`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+    )
+    .then((res) =>
+      res.json().then((data) => NextResponse.json(data, { status: res.status }))
+    )
+    .catch((error) => {
+      const errObj = {
+        message: "An unexpected error occurred.",
+        error: String(error),
+        statusCode: 502,
+      } as ErrorResponse;
 
-  try {
-    const res = await fetch(`${apiUrl}/generator/generate-commit-message`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload as GenerateCommitPayload),
+      return NextResponse.json(errObj, { status: 502 });
     });
-
-    const data = await res.json();
-
-    return NextResponse.json(data);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      return new Response(JSON.stringify({ error: error.message }), {
-        status: 500,
-      });
-    }
-  }
 }

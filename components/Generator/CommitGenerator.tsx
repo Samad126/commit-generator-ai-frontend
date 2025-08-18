@@ -7,11 +7,14 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/lib/schemas/generateCommitFormSchema";
 import { useState } from "react";
-import { GenerateCommitRaw, GenerateCommitPayload } from "@/types/form";
+import {
+  GenerateCommitRaw,
+  GenerateCommitPayload,
+  GenerateCommitSuccessResponse,
+} from "@/types/form";
 import { SubmitButton } from "./SubmitButton";
 import TypeChanger from "./TypeChanger";
-
-// const HOST_URL = process.env.NEXT_HOST_URL || "http://localhost:3000";
+import { ErrorResponse } from "@/types/error";
 
 function CommitGenerator() {
   const [inputType, setInputType] = useState<"plaintext" | "filechange">(
@@ -65,30 +68,24 @@ function CommitGenerator() {
       body: JSON.stringify(payload),
     })
       .then(async (res) => {
-        console.log(res);
         const data = await res.json();
-        console.log(data);
 
         if (!res.ok) {
-          const message = data?.message || res.statusText || "Unknown error";
-          throw new Error(message);
+          throw new Error((data as ErrorResponse).message);
         }
 
         return data;
       })
-      .then((data) => {
+      .then((data: GenerateCommitSuccessResponse) => {
         setGeneratedMessage(data.aiResponse);
       })
-      .catch((err) => {
-        console.error("Failed to generate commit message:", err);
-        setError(err.message || "An unexpected error occurred.");
+      .catch((err: unknown) => {
+        setError((err as Error).message);
       })
       .finally(() => {
         setLoading(false);
       });
   };
-
-  console.log(error);
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
@@ -101,7 +98,9 @@ function CommitGenerator() {
             />
 
             <div className="p-6 sm:p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-2xl">
-              {error && <p className="text-red-500 mb-2 ">An Error Occured</p>}
+              {error && (
+                <p className="text-red-500 mb-2 ">An Error Occured: {error}</p>
+              )}
               {inputType === "filechange" ? <FileChanges /> : <PlainText />}
             </div>
 
