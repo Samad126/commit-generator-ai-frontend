@@ -21,6 +21,4 @@ export type GenerateCommitForm = {
 
 export type GenerateCommitRaw = Partial<GenerateCommitForm>;
 
-export type GenerateCommitPayload = (PlainTextPayload | FileChangePayload) & {
-  isPair: boolean;
-};
+export type GenerateCommitPayload = PlainTextPayload | FileChangePayload;

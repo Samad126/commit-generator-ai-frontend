@@ -11,7 +11,7 @@ import { GenerateCommitRaw, GenerateCommitPayload } from "@/types/form";
 import { SubmitButton } from "./SubmitButton";
 import TypeChanger from "./TypeChanger";
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+// const HOST_URL = process.env.NEXT_HOST_URL || "http://localhost:3000";
 
 function CommitGenerator() {
   const [inputType, setInputType] = useState<"plaintext" | "filechange">(
@@ -57,7 +57,7 @@ function CommitGenerator() {
     setLoading(true);
     setError(null);
 
-    fetch(`${apiUrl}/generator/generate-commit-message`, {
+    fetch(`/api/generate-message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,9 @@ function CommitGenerator() {
       body: JSON.stringify(payload),
     })
       .then(async (res) => {
+        console.log(res);
         const data = await res.json();
+        console.log(data);
 
         if (!res.ok) {
           const message = data?.message || res.statusText || "Unknown error";
@@ -85,6 +87,8 @@ function CommitGenerator() {
         setLoading(false);
       });
   };
+
+  console.log(error);
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
