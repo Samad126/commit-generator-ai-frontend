@@ -12,9 +12,7 @@ function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full mt-20 max-w-md">
-        {/* Login Form */}
         <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-2xl p-8">
-          {/* Header */}
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FaUser className="text-black text-2xl" />
@@ -23,7 +21,6 @@ function LoginPage() {
             <p className="text-gray-400">Sign in to your account to continue</p>
           </div>
 
-          {/* Email Field */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-300 mb-2">
               Email
@@ -39,7 +36,6 @@ function LoginPage() {
             </div>
           </div>
 
-          {/* Password Field */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-300 mb-2">
               Password
@@ -62,31 +58,10 @@ function LoginPage() {
             </div>
           </div>
 
-          {/* Remember Me & Forgot Password */}
-          <div className="flex items-center justify-between mb-6">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-4 h-4 text-green-500 bg-gray-700 border-gray-600 rounded"
-              />
-              <span className="ml-2 text-sm text-gray-300">Remember me</span>
-            </label>
-            <Link
-              href="#"
-              className="text-sm text-green-400 hover:text-green-300 transition-colors duration-200"
-            >
-              Forgot password?
-            </Link>
-          </div>
-
-          {/* Sign In Button */}
           <button className="w-full bg-gradient-to-r from-green-500 to-green-600 text-black font-semibold py-3 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg mb-6">
             Sign In
           </button>
 
-          {/* Sign Up Link */}
           <p className="text-center text-gray-400">
             Don&apos;t have an account?{" "}
             <Link
