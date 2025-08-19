@@ -67,14 +67,12 @@ function CommitGenerator() {
       },
       body: JSON.stringify(payload),
     })
-      .then(async (res) => {
-        const data = await res.json();
-
+      .then((res) => {
         if (!res.ok) {
           throw new Error((data as ErrorResponse).message);
         }
 
-        return data;
+        return res.json();
       })
       .then((data: GenerateCommitSuccessResponse) => {
         setGeneratedMessage(data.aiResponse);
