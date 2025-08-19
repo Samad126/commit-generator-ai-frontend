@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 const apiUrl = process.env.NEXT_API_URL || "http://localhost:3000";
 
 export async function POST(req: Request) {
+  console.log(apiUrl);
   return req
     .json()
     .then((payload) =>
