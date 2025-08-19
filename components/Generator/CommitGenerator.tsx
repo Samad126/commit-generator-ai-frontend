@@ -67,13 +67,14 @@ function CommitGenerator() {
       },
       body: JSON.stringify(payload),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error((data as ErrorResponse).message);
-        }
-
-        return res.json();
-      })
+      .then((res) =>
+        res.json().then((data) => {
+          if (!res.ok) {
+            throw new Error((data as ErrorResponse).message || "Unknown Error");
+          }
+          return data;
+        })
+      )
       .then((data: GenerateCommitSuccessResponse) => {
         setGeneratedMessage(data.aiResponse);
       })
