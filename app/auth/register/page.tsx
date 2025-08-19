@@ -2,6 +2,25 @@ import Form from "@/components/Auth/Register/Form";
 import Link from "next/link";
 import { FaUser} from "react-icons/fa";
 
+export const metadata = {
+  title: "CommitGen AI - Register",
+  description: "Register for a CommitGen AI account",
+  // openGraph: {
+  //   title: "CommitGen AI - Register",
+  //   description: "Register for a CommitGen AI account",
+  //   url: "https://commitgen.ai/auth/register",
+  //   siteName: "CommitGen AI",
+  //   images: [
+  //     {
+  //       url: "https://commitgen.ai/og.png",
+  //       width: 1200,
+  //       height: 630,
+  //       alt: "CommitGen AI",
+  //     },
+  //   ],
+  // },
+};
+
 function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8">

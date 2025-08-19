@@ -5,12 +5,21 @@ const emailRegex =
 
 export const registerformschema = yup.object().shape({
   username: yup.string().required("Username is required."),
-  email: yup.string().matches(emailRegex, "Invalid email").required("Email is required."),
-  password: yup
+  email: yup
     .string()
-    .required("Password is required."),
+    .matches(emailRegex, "Invalid email")
+    .required("Email is required."),
+  password: yup.string().required("Password is required."),
   confirmPassword: yup
     .string()
     .required("Confirm password is required.")
     .oneOf([yup.ref("password")], "Passwords must match"),
+});
+
+export const loginformschema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(emailRegex, "Invalid email")
+    .required("Email is required."),
+  password: yup.string().required("Password is required."),
 });

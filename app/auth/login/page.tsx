@@ -1,14 +1,27 @@
-"use client";
+import LoginForm from "@/components/Auth/Login/Form";
 import Link from "next/link";
-import { useState } from "react";
-import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+
+export const metadata = {
+  title: "CommitGen AI - Login",
+  description: "Login to your CommitGen AI account",
+  // openGraph: {
+  //   title: "CommitGen AI - Login",
+  //   description: "Login to your CommitGen AI account",
+  //   url: "https://commitgen.ai/auth/login",
+  //   siteName: "CommitGen AI",
+  //   images: [
+  //     {
+  //       url: "https://commitgen.ai/og.png",
+  //       width: 1200,
+  //       height: 630,
+  //       alt: "CommitGen AI",
+  //     },
+  //   ],
+  // },
+};
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
-
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full mt-20 max-w-md">
@@ -21,46 +34,7 @@ function LoginPage() {
             <p className="text-gray-400">Sign in to your account to continue</p>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Email
-            </label>
-            <div className="relative">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="name@example.com"
-              />
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 pr-12"
-                placeholder="Enter your password"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </button>
-            </div>
-          </div>
-
-          <button className="w-full bg-gradient-to-r from-green-500 to-green-600 text-black font-semibold py-3 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg mb-6">
-            Sign In
-          </button>
+          <LoginForm />
 
           <p className="text-center text-gray-400">
             Don&apos;t have an account?{" "}

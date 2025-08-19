@@ -1,7 +1,7 @@
 "use client";
 
-import { registerformschema } from "@/lib/schemas/registerFormSchema";
-import { RegisterForm } from "@/types/auth";
+import { registerformschema } from "@/lib/schemas/authFormSchema";
+import { RegisterFormPayload } from "@/types/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -15,7 +15,7 @@ function Form() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterForm>({
+  } = useForm<RegisterFormPayload>({
     defaultValues: {
       username: "",
       email: "",
@@ -25,7 +25,7 @@ function Form() {
     resolver: yupResolver(registerformschema),
   });
 
-  const onSubmit = (data: RegisterForm) => {
+  const onSubmit = (data: RegisterFormPayload) => {
     console.log(data);
   };
 
